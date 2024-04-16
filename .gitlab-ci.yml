@@ -12,10 +12,6 @@
 # you can delete this line if you're not using Docker
 image: busybox:latest
 
-Environment:
-  name: Development
-  url:
-
 before_script:
   - echo $CI_BUILD_STAGE
   - apt-get update
@@ -23,24 +19,23 @@ before_script:
   - bundle install
   - npm install
 
-build1:
+stages:
+  - build
+  - validate
+  - deploy
+
+compile:
   stage: build
   script:
     - echo "Do your build here"
 
-test1:
-  stage: Validate
+test:
+  stage: validate
   script:
     - echo "Do a test here"
     - echo "For example run a test suite"
 
-test2:
-  stage: test
-  script:
-    - echo "Do another parallel test here"
-    - echo "For example run a lint test"
-
-deploy1:
+deploy:
   stage: deploy
   script:
     - echo "Do your deploy here"
