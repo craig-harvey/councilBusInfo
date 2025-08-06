@@ -1,0 +1,15 @@
+{
+  "name": "councilbusinfo",
+  "version": "1.0.0",
+  "description": "This is a simple app that connects into the Brisbane translink API to get the next bus estimated time (real-time). Only works on a pre-configured specific bus stop",
+  "main": "ExtractBusTimes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.11.0"
+  }
+}
