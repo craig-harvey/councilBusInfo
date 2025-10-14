@@ -1,6 +1,6 @@
 # When's My Next Bus
 
-This project hooks into the Brisbane City Council's translink APIs to relay the next bus times for certain stops. There are 2 interfaces:
+This project hooks into the Brisbane City Council's translink APIs to retrieve the next bus times for certain stops. There are 2 interfaces:
  - Alexa Skill
  - Webpage
 
@@ -20,6 +20,7 @@ Add a variable so it can check the next time for a certain bus, for example:
 >
 > -> "The next 375 bus is in 3mins"
 
+(default)
 > 'Alexa, when's my next bus'
 >
 > -> "The next 377 is in 7mins"
@@ -28,7 +29,9 @@ Add a variable so it can check the next time for a certain bus, for example:
 AWS Lambda function that sends an html page with bus times for specific stops. Currently hard coded to 2 morning stops and 1 afternoon stop
 
 **TO DO**
-- Have a selection process so people can add their own stops, and have it persistent
+- Have a selection process so people can add their own stops, and have it persistent on their device
+- Add tests
+- auto deploy (via github)
 
 ## Translink URL
 

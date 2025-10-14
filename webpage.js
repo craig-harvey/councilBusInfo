@@ -106,6 +106,7 @@ exports.handler = async (event) => {
 <!doctype html>
 <html lang="en">
 <head>
+  <meta http-equiv="refresh" content="30">
   <meta charset="utf-8" />
   <title>Translink Timetable – Stop ${stopId}</title>
   <style>
