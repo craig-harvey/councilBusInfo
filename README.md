@@ -1,8 +1,16 @@
 # When's My Next Bus
 
-This project hooks into the Brisbane City Council's translink APIs to retrieve the next bus times for certain stops. There are 2 interfaces:
- - Alexa Skill
- - Webpage
+This project hooks into the Brisbane City Council's translink APIs to retrieve the next bus times for certain stops. 
+
+**You can add your own**. To find stops, search for them here: https://jp.translink.com.au/plan-your-journey/stops. But note, it's not the stop name, but the id of the stop which is a 6-digit number::
+
+![alt text](image.png)
+
+---
+
+There are 2 interfaces:
+ - Alexa Skill - See `index.js`
+ - Webpage - See `webpage.js`
 
 ## Alexa Skill
 
@@ -32,9 +40,3 @@ AWS Lambda function that sends an html page with bus times for specific stops. C
 - Have a selection process so people can add their own stops, and have it persistent on their device
 - Add tests
 - auto deploy (via github)
-
-## Translink URL
-
-The URL for the bus stop near my place is https://jp.translink.com.au/api/stop/timetable/001924
-
-Stop IDs can be found by searching here: https://jp.translink.com.au/plan-your-journey/stops
