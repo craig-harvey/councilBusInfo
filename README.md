@@ -1,3 +1,5 @@
+[![CouncilBus (Main)](https://github.com/craig-harvey/councilBusInfo/actions/workflows/node.js.yml/badge.svg)](https://github.com/craig-harvey/councilBusInfo/actions/workflows/node.js.yml)
+
 # When's My Next Bus
 
 This project hooks into the Brisbane City Council's translink APIs to retrieve the next bus times for certain stops. 
