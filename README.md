@@ -1,4 +1,4 @@
-[![CouncilBus (Main)](https://github.com/craig-harvey/councilBusInfo/actions/workflows/node.js.yml/badge.svg)](https://github.com/craig-harvey/councilBusInfo/actions/workflows/node.js.yml)
+[![CouncilBus](https://github.com/craig-harvey/councilBusInfo/actions/workflows/node.js.yml/badge.svg)](https://github.com/craig-harvey/councilBusInfo/actions/workflows/node.js.yml)
 
 # When's My Next Bus
 
