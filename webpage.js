@@ -1,11 +1,21 @@
+function logData(data) {
+  const timestamp = new Date().toISOString();
+  console.log(`[${timestamp}] Data:`, data);
+}
+
 function groupDepartures(departures) {
     // Group departure.Descriptions by headsign
     const grouped = departures.reduce((acc, dep) => {
-      const key = dep.headsign; // e.g. "375", "385", "61"
-      if (!acc[key]) {
-        acc[key] = [];
+      // const key = dep.headsign; // e.g. "375", "385", "61"
+      const parts = dep.routeId.split(':');
+      if (parts.includes('Bus')) {
+       
+        const key = parts[parts.length - 1]; // Extract the number at the end
+        if (!acc[key]) {
+          acc[key] = [];
+        }
+        acc[key].push(dep.departureDescription);
       }
-      acc[key].push(dep.departureDescription);
       return acc;
     }, {});
 
@@ -14,7 +24,8 @@ function groupDepartures(departures) {
 
 function buildTable(name, stopId, departures) {
   var rows = "";
-  console.log(departures);
+  
+  logData(departures);
 
   for (const [headsign, departureList] of Object.entries(departures)) {
     rows += `
@@ -59,13 +70,13 @@ exports.handler = async (event) => {
     var resp = await fetch(apiUrl, {
       headers: { "Accept": "application/json" },
     });
-    console.log('>>> API Response:', resp);
+    logData('>>> API Response:', resp);
     if (resp.status !== 200) {
       throw new Error(`Translink API error: ${resp.status} ${resp.statusText}`);
     }
 
     data = await resp.json();
-    console.log('>>> Timetable Data:', data);
+    logData('>>> Timetable Data:', data);
     table += buildTable("Woolworths Paddington", stopId, groupDepartures(data.departures));
 
     /////////////////////////////////////////////////////
@@ -74,7 +85,7 @@ exports.handler = async (event) => {
     resp = await fetch(apiUrl, {
       headers: { "Accept": "application/json" },
     });
-    console.log('>>> API Response:', resp);
+    logData('>>> API Response:', resp);
     if (resp.status !== 200) {
       throw new Error(`Translink API error: ${resp.status} ${resp.statusText}`);
     }
