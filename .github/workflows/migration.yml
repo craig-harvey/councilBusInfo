@@ -1,0 +1,33 @@
+name: Migrate Demo
+on:
+  workflow_dispatch:
+    inputs:
+      AdoProject:
+        description: 'Project in ADO to migrate'
+        required: true
+      MigrateAllRepos:
+        description: 'Migrate all the repos in the project'
+        required: true
+        type: boolean
+        default: true
+      lockAdoRepos:
+        description: 'Lock Azure DevOps repository'
+        required: false
+        type: boolean
+        default: false
+      targetGitHibOrganisation:
+        description: 'Which Organisation will we migrate to'
+        required: true
+        default: 'ART General'
+        type: choice
+        options:
+        - 'ART General'
+        - 'ART Sandbox'
+        - 'ART Archive'
+        - 'ART Protected'
+
+jobs:
+  migrate:
+    name: Migrate project ${{ github.event.inputs.AdoProject }}
+    runs-on: ubuntu-latest
+    
